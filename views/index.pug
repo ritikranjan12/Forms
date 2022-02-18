@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="shortcut icon" href="../static/favicon.png" type="image/x-icon">
+    style
+        include ../static/index.ac42053b.css
+</head>
+<body>
+    <header class="text-white body-font bg-slate-800 ">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+            <span class="mx-4  text-xl">Blog World - Forms</span>
+          </a>
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <a href="https://ritik-ranjan.netlify.app/" class="mr-5 hover:text-red-600 hover:font-bold">Home</a>
+            <a href="https://ritik-ranjan.netlify.app/blog.html" target="_blanck" class="mr-5 hover:text-red-600 hover:font-bold">Blog</a>
+            <a href="https://cheatsheetsbyritik.netlify.app" target="_blanck" class="mr-5 hover:text-red-600 hover:font-bold">Cheatsheets</a>
+            <a href="https://github.com/ritikranjan12" target="_blanck" class="mr-5 hover:text-red-600 hover:font-bold">Projects</a>
+          </nav>
+        </div>
+    </header>
+    <div class="md:flex justify-center ">
+        <div class="md:w-[70%] border-2 border-white shadow-md rounded-md   my-32 bg-white  text-blue-900">
+            <div class="flex text-3xl text-red-800 font-bold mx-4 my-3 px-3">
+                    KIST Collage Chapter 
+            </div>
+            <div class="flex justify-center text-xl text-green-900 mx-3 my-4 px-3 py-3">
+                We are going to start a Program to help student's to code better using the Competetive Programming(CP) stuffs with 4 members in our Program.
+            </div>
+            <div class="flex text-xl text-red-800 font-bold  mx-3 px-3 my-2 ">
+                    <button class="border-2 border-amber-400 bg-gray-300 shadow-md rounded-md cursor-pointer hover:bg-gray-400 "><a href="https://www.codechef.com/college-chapter/apply" target="_blank"> Learn more</a></button>
+            </div>
+            <div>
+                    <p class="flex text-xl text-green-900 mx-3 px-3 ">They  are as follow :</p>
+                    <p class="font-semibold mx-3 px-3 py-1 ">
+                        President  : Ritik Ranjan
+                    </p> 
+                    <p class="font-semibold mx-3 px-3 py-1 ">
+                        CP Lead  : Tasswar Hasib 
+                    </p>
+                    <p class="font-semibold mx-3 px-3 py-1 ">
+                        Events Lead  : Pintu kr. yadav
+                    </p>
+                    <p class="mx-3 px-3 py-1 ">
+                        We are updating the other 1 member soon.
+                    </p>
+                    <p class="mx-3 px-3 py-1 text-red-900">
+                        Please fill the form so that we provide relevant knowledge to you. 
+                    </p>
+            </div>
+            <div class="flex justify-center text-3xl text-blue-800 font-bold py-4 ">
+                    Form 
+            </div>
+            <div class="flex justify-center text-black">
+                    <form action="/" method="post" class="border-4 border-blue-400 rounded-md shadow-md md:w-1/2">
+                        <div class="mx-3 my-2 px-2 py-2 text-xl font-semibold"> Name</div>
+                        <div class="mx-3  px-2 text-xl font-semibold  shadow-md border-black"><input type="text" name="name" required placeholder="Enter your Name">
+                        </div>
+                        <div class="mx-3 my-2 px-2 py-2 text-xl font-semibold"> Branch</div>
+                        <div class="mx-3  px-2 text-xl font-semibold  shadow-md border-black"><input type="text" name="branch" required placeholder="Enter your Branch">
+                        </div>
+                        <div class="mx-3 my-2 px-2 py-2 text-xl font-semibold"> Programming Language</div>
+                        <div class="mx-3  px-2 text-xl font-semibold  shadow-md border-black"><input type="text" name="pl" required placeholder="Ex- Java,C,C++ ">
+                        </div>
+                        <div class="mx-3 my-2 px-2 py-2 text-xl font-semibold">Level of coding </div>
+                        <div class="mx-3 py-2 px-2 shadow-md border-black font-mono text-sm"><input type="radio" name="loc" required> Just started
+                        </div>
+                        <div class="mx-3 py-2 px-2 shadow-md border-black font-mono text-sm"><input type="radio" name="loc" required> Good
+                        </div>
+                        <div class="mx-3 py-2 px-2 shadow-md border-black font-mono text-sm"><input type="radio" name="loc" required> Very Good
+                        </div>
+                        <div class="mx-3 py-2 px-2 shadow-md border-black font-mono text-sm"><input type="radio" name="loc" required> Excellent 
+                        </div>
+                        <div class="mx-3 my-2 px-2 py-2 text-xl font-semibold"> Interest in Coding</div>
+                        <div class="mx-3  px-2 text-xl font-semibold  shadow-md border-black"><input type="range" name="icd" required>
+                        </div>
+                        <div class="flex justify-center  my-4  ">
+                            <button class="text-xl  py-2 px-2 shadow-md border-4 bg-green-600  border-black font-semibold hover:bg-green-400">SUBMIT</button>
+                        </div>
+                        
+                    </form>
+            </div>
+        </div>     
+    </div>
+</body>
+</html>
