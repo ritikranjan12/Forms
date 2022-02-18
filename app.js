@@ -35,6 +35,6 @@ app.post('/',(req,res)=>{
     res.status(200).render('index.pug',param);
     count++;
 })
-app.listen(port,()=>{
+app.listen(process.env.PORT || port,()=>{
     console.log(`The application started successfully`)
 });
