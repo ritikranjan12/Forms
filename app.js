@@ -5,7 +5,8 @@ const fs = require("fs");
 const port = 80
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser')
-mongoose.connect('mongodb+srv://ritik:9340@cluster0.9dw1i.mongodb.net/myformDatabase?retryWrites=true&w=majority',{useNewUrlParser: true},{useUnifiedTopology:true});
+const url = fs.readFileSync('url.txt')
+mongoose.connect(`${url}`,{useNewUrlParser: true},{useUnifiedTopology:true});
 
 //define mongoose schema
 const contactSchema = new mongoose.Schema({
@@ -37,10 +38,11 @@ app.get('/',(req,res)=>{
 app.post('/',(req,res)=>{
     var mydata = new formvalue(req.body);
     mydata.save().then(()=>{
-        res.send("This item is saved in the database")
+        res.status(200).render('index.pug')
     }).catch(()=>{
-        res.status(400).send("Item was not saved to the database")
+        console.log("Form is not saved");
     })
+    
     // const param = {'message' : "Your foem value is submitted successfully"}
     // res.status(200).render('index.pug',param);
 })
