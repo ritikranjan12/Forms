@@ -5,7 +5,7 @@ const fs = require("fs");
 const port = 80
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser')
-mongoose.connect('mongodb+srv://ritik:9340@cluster0.9dw1i.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{useNewUrlParser: true},{useUnifiedTopology:true});
+mongoose.connect('mongodb+srv://ritik:9340@cluster0.9dw1i.mongodb.net/myformDatabase?retryWrites=true&w=majority',{useNewUrlParser: true},{useUnifiedTopology:true});
 
 //define mongoose schema
 const contactSchema = new mongoose.Schema({
@@ -16,7 +16,7 @@ const contactSchema = new mongoose.Schema({
     loc: String,
     icd: String
 });
-const Contact = mongoose.model('Contact', contactSchema);
+const formvalue = mongoose.model('formvalue', contactSchema);
 
 
 
@@ -35,14 +35,14 @@ app.get('/',(req,res)=>{
 })
 
 app.post('/',(req,res)=>{
-    var mydata = new Contact(req.body);
+    var mydata = new formvalue(req.body);
     mydata.save().then(()=>{
-        alert("Form value saved Successfully !")
-        res.status(200).render('index.pug');
+        res.send("This item is saved in the database")
     }).catch(()=>{
-        confirm("Form Not Saved")
-        res.status(200).render('index.pug');
-    })  
+        res.status(400).send("Item was not saved to the database")
+    })
+    // const param = {'message' : "Your foem value is submitted successfully"}
+    // res.status(200).render('index.pug',param);
 })
 app.listen(process.env.PORT || port,()=>{
     console.log(`The application started successfully`)

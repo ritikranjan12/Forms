@@ -10,6 +10,9 @@
         include ../static/index.ac42053b.css
 </head>
 <body>
+    //- <script>
+    //- action(`${param}`)
+    //- </script>
     <header class="text-white body-font bg-slate-800 ">
         <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
           <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
@@ -58,31 +61,18 @@
             <div class="flex justify-center text-black">
                     <form action="/" method="post" class="border-4 border-blue-400 rounded-md shadow-md md:w-1/2">
                         <div class="mx-3 my-2 px-2 py-2 text-xl font-semibold"> Name</div>
-                        <span class="mx-3  px-2 text-xl font-semibold  shadow-md border-black"><input type="text" name="name" required placeholder="Enter your Name">
+                        <span class="mx-3 py-2 px-2 shadow-md border-black font-mono text-sm"><input type="text" name="name" required placeholder="Enter your Name">
                         </span>
                         <div class="mx-3 my-2 px-2 py-2 text-xl font-semibold"> Branch</div>
-                        <span class="mx-3  px-2 text-xl font-semibold  shadow-md border-black"><input type="text" name="branch" required placeholder="Enter your Branch">
+                        <span class="mx-3 py-2 px-2 shadow-md border-black font-mono text-sm"><input type="text" name="branch" required placeholder="Enter your Branch">
                         </span>
                         <div class="mx-3 my-2 px-2 py-2 text-xl font-semibold"> Email</div>
-                        <span class="mx-3  px-2 text-xl font-semibold  shadow-md border-black"><input type="email" name="email" required placeholder="Enter your email">
+                        <span class="mx-3 py-2 px-2 shadow-md border-black font-mono text-sm"><input type="email" name="email" required placeholder="Enter your email">
                         </span>
                         <div class="mx-3 my-2 px-2 py-2 text-xl font-semibold"> Programming Language</div>
-                        <div class="mx-3 py-2 px-2 shadow-md border-black font-mono text-sm">
-                        <input type="checkbox" name="pl">
-                        <label for="JAVA">JAVA</label>
-                        </div>
-                        <div class="mx-3 py-2 px-2 shadow-md border-black font-mono text-sm">
-                        <input type="checkbox" name="pl">
-                        <label for="C">C</label>
-                        </div>
-                        <div class="mx-3 py-2 px-2 shadow-md border-black font-mono text-sm">
-                        <input type="checkbox" name="pl">
-                        <label for="C++">C++</label>
-                        </div>
-                        <div class="mx-3 py-2 px-2 shadow-md border-black font-mono text-sm">
-                        <input type="checkbox" name="pl">
-                        <label for="Python">Python</label>
-                        </div>
+                        <span class="mx-3 py-2 px-2 shadow-md border-black font-mono text-sm">
+                        <input type="text" name="pl" required placeholder="Ex:- java,C">
+                        </span>
                         <div class="mx-3 my-2 px-2 py-2 text-xl font-semibold">Level of coding </div>
                         <div class="mx-3 py-2 px-2 shadow-md border-black font-mono text-sm"><input type="radio" name="loc" required> Just started
                         </div>
