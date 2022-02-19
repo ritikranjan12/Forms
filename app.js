@@ -40,7 +40,7 @@ app.post('/',(req,res)=>{
     mydata.save().then(()=>{
         res.status(200).render('index.pug')
     }).catch(()=>{
-        console.log("Form is not saved");
+        res.status(200).render('index.pug')
     })
     
     // const param = {'message' : "Your foem value is submitted successfully"}
