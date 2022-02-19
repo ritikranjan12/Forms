@@ -3,7 +3,22 @@ const path = require("path");
 const app = express();
 const fs = require("fs");
 const port = 80
-let count = 1
+const mongoose = require('mongoose');
+const bodyparser = require('body-parser')
+mongoose.connect('mongodb+srv://ritik:9340@cluster0.9dw1i.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{useNewUrlParser: true},{useUnifiedTopology:true});
+
+//define mongoose schema
+const contactSchema = new mongoose.Schema({
+    name: String,
+    branch: String,
+    email: String,
+    pl: String,
+    loc: String,
+    icd: String
+});
+const Contact = mongoose.model('Contact', contactSchema);
+
+
 
 // Express Specific Stuffs
 app.use('/static',express.static('static'))
@@ -20,20 +35,14 @@ app.get('/',(req,res)=>{
 })
 
 app.post('/',(req,res)=>{
-    name1 = req.body.name
-    branch = req.body.branch
-    pl = req.body.pl
-    loc = req.body.loc
-    icd = req.body.icd
-
-    outputtext = `My name is ${name1} of ${branch} branch. I know ${pl} programming language and ${loc} in coding.My interest in coidng is ${icd}`;
-
-
-    fs.writeFileSync(`output${count}.txt`,outputtext)
-    
-    const param = {'message' : "Your foem value is submitted successfully"}
-    res.status(200).render('index.pug',param);
-    count++;
+    var mydata = new Contact(req.body);
+    mydata.save().then(()=>{
+        alert("Form value saved Successfully !")
+        res.status(200).render('index.pug');
+    }).catch(()=>{
+        confirm("Form Not Saved")
+        res.status(200).render('index.pug');
+    })  
 })
 app.listen(process.env.PORT || port,()=>{
     console.log(`The application started successfully`)
