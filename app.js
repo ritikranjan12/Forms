@@ -1,24 +1,19 @@
 const express = require("express");
+const { Client } = require('pg')
 const path = require("path");
 const app = express();
 const fs = require("fs");
 const port = 80
-const mongoose = require('mongoose');
 const bodyparser = require('body-parser')
-const url = fs.readFileSync('url.txt')
-mongoose.connect(`${url}`,{useNewUrlParser: true},{useUnifiedTopology:true});
+// const url = fs.readFileSync('url.txt')
 
-//define mongoose schema
-const contactSchema = new mongoose.Schema({
-    name: String,
-    branch: String,
-    email: String,
-    pl: String,
-    loc: String,
-    icd: String
+const client = new Client({
+    user:'ekwahbeh',
+    host:'chunee.db.elephantsql.com',
+    database:'ekwahbeh',
+    password:'IrJ5rU7Ctt4GyZvHl_psJwMtsXzGLj-7',
+    port:5432
 });
-const formvalue = mongoose.model('formvalue', contactSchema);
-
 
 
 // Express Specific Stuffs
@@ -36,15 +31,16 @@ app.get('/',(req,res)=>{
 })
 
 app.post('/',(req,res)=>{
-    var mydata = new formvalue(req.body);
-    mydata.save().then(()=>{
-        res.status(200).render('index.pug')
-    }).catch(()=>{
-        res.status(200).render('index.pug')
+    var name = req.body.name;
+    var branch = req.body.branch;
+    var email = req.body.email;
+    var pl = req.body.pl;
+    var loc = req.body.loc;
+    var interest = req.body.interest;
+    client.connect().then(() => client.query("insert into students values ($1,$2,$3,$4,$5,$6)",[name,branch,email,pl,loc,interest])).catch(e => console.log(e)).finally(() => {
+        client.end();
+        res.status(200).render('index.pug');
     })
-    
-    // const param = {'message' : "Your foem value is submitted successfully"}
-    // res.status(200).render('index.pug',param);
 })
 app.listen(process.env.PORT || port,()=>{
     console.log(`The application started successfully`)

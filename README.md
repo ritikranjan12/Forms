@@ -1,2 +1,2 @@
 # Forms
-It is a dform created by Express and pug
+It is a form created by Express and pug
